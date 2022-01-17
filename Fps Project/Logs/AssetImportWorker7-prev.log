@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.1/staging' branch; Version is '2021.1.22f1 (a137e5fb0427) revision 10565605'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 22494.1000; Version 2009; 64bit' Language: 'en' Physical Memory: 3919 MB
+OS: 'Windows 10 Home; OS build 22523.1000; Version 2009; 64bit' Language: 'en' Physical Memory: 3919 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2021.1.22f1\Editor\Unity.exe
 -name
 AssetImportWorker7
 -projectPath
-C:/Users/Costin/Fps Project
+C:/Users/Costin/Documents/GitHub/FpsProject/Fps Project
 -logFile
 Logs/AssetImportWorker7.log
 -srvPort
-58334
-Successfully changed project path to: C:/Users/Costin/Fps Project
-C:/Users/Costin/Fps Project
+50050
+Successfully changed project path to: C:/Users/Costin/Documents/GitHub/FpsProject/Fps Project
+C:/Users/Costin/Documents/GitHub/FpsProject/Fps Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 616.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 865.75 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.22f1 (a137e5fb0427)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.22f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Costin/Fps Project/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Costin/Documents/GitHub/FpsProject/Fps Project/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -36,5 +36,5 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.22f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.22f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56068
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
 Begin MonoManager ReloadAssembly

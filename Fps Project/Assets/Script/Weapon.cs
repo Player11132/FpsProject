@@ -18,7 +18,6 @@ public class Weapon :  ScriptableObject
     public float recoilY;
     public float recoilZ;
 
-    [Header(" ")]
     public float snappines;
     public float returnspeed;
 
@@ -32,13 +31,6 @@ public class Weapon :  ScriptableObject
     public Vector3 localBarellpos;
     
     public GameObject Flash;
-    [Header("Gun Viewmodel Recoil")]
-    public float GrecoilX;
-    public float GrecoilY;
-    public float GrecoilZ;
-
-    public float Gsnappines;
-    public float Greturnspeed;
 
     [Header("Bobing")]
     public float bobSpeed = 1f;

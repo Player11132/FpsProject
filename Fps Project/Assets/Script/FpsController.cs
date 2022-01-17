@@ -43,6 +43,56 @@ public class FpsController : MonoBehaviour
     private bool readyToJump = true;
     private float jumpCooldown = 0.25f;
     public float jumpForce = 550f;
+    
+    [Header("Parkour")]
+    [Tooltip("Drag Settings")]
+    public float drag_grounded;
+    public float drag_inair;
+
+    [Header("Detection")]
+    //I could use a list/dictionary but I think I would complicate too much
+    public Detection Climb;
+    public Detection checkClimb;
+    public Detection Vault;
+    public Detection checkVault;
+
+    [System.Serializable] //Trick to show structs in inspectors!
+
+    public struct Detection {
+        public float lenght;
+        public Transform origin;
+        public LayerMask layer;
+        public bool intersection;
+    }
+
+    /*
+     * Its for boxcast, but it no work
+    public struct Detection
+    {
+        [Header("Boxcast settings")]
+        public Transform origin;
+        public Vector3 halfsize;//basicly if you want the box size to be 1,1,1 set it to 0.5f,0.5f,0.5f
+        public LayerMask layer;
+        public float distance;
+        public Vector3 direction;//(x=left/right,y=up/down,z=forward/backwards)
+        public bool intersection;
+    }
+    */
+    public bool IsParkour;
+    private float t_parkour;
+    private float chosenParkourMoveTime;
+
+    [Tooltip("Vaulting")]
+    private bool CanVault;
+    public float VaultTime; //how long the vault takes
+    public Transform VaultEndPoint;
+    [Tooltip("Climbing")]
+    private bool CanClimb;
+    public float ClimbTime; //how long the climb takes
+    public Transform ClimbEndPoint;
+
+    private Vector3 RecordedMoveToPosition; //the position of the vault end point in world space to move the player to
+    private Vector3 RecordedStartPosition; // position of player right before vault
 
     //Input
     float x, y;
@@ -51,6 +101,7 @@ public class FpsController : MonoBehaviour
     //Sliding
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
+    private Vector3 oldvelocity;
 
     void Awake()
     {
@@ -75,7 +126,7 @@ public class FpsController : MonoBehaviour
         Look();
         //Move camera
         playerCam.position = Headposition.position;
-
+        CheckEnviorment();
     }
 
     /// Find user input. Should put this in its own class but im lazy
@@ -94,6 +145,28 @@ public class FpsController : MonoBehaviour
             StopCrouch();
     }
 
+    private void CheckEnviorment()
+    {
+        Vault.intersection = Physics.Raycast(Vault.origin.position, Vault.origin.forward, Vault.lenght, Vault.layer, QueryTriggerInteraction.Ignore);
+        checkVault.intersection = Physics.Raycast(checkVault.origin.position, checkVault.origin.forward, checkVault.lenght, checkVault.layer, QueryTriggerInteraction.Ignore);
+        if (Vault.intersection && !checkVault.intersection)
+            CanVault = true;
+        else
+            CanVault = false;
+
+        Climb.intersection = Physics.Raycast(Climb.origin.position, Climb.origin.forward, Climb.lenght, Climb.layer, QueryTriggerInteraction.Ignore);
+        checkVault.intersection = Physics.Raycast(checkClimb.origin.position, checkClimb.origin.forward, checkClimb.lenght, checkClimb.layer, QueryTriggerInteraction.Ignore);
+        if (Climb.intersection && !checkClimb.intersection)
+            CanClimb = true;
+        else
+            CanClimb = false;
+
+        //Dbugging
+        Debug.Log("CanClimb");
+        Debug.Log(CanClimb);
+        Debug.Log("CanVault");
+        Debug.Log(CanVault);
+    }
     private void StartCrouch()
     {
         transform.localScale = crouchScale;
@@ -308,9 +381,11 @@ public class FpsController : MonoBehaviour
         }
     }
 
+
     private void StopGrounded()
     {
         grounded = false;
     }
+
 
 }
