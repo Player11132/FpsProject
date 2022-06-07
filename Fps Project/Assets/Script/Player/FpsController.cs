@@ -22,9 +22,9 @@ public class FpsController : MonoBehaviour
     private float sensMultiplier = 1f;
 
     [Header("Movement")]
-    public float moveSpeed = 4500;
+    public float moveSpeed = 500;
     public float maxSpeed = 20;
-    public float sprintspeed=3000;
+    public float sprintspeed=1000;
     public bool grounded;
     public LayerMask whatIsGround;
 
@@ -42,7 +42,7 @@ public class FpsController : MonoBehaviour
     [Tooltip("Jumping")]
     private bool readyToJump = true;
     private float jumpCooldown = 0.25f;
-    public float jumpForce = 550f;
+    public float jumpForce = 150f;
     
     [Header("Parkour")]
 
