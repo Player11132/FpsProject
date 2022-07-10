@@ -1,3 +1,5 @@
+using System.Collections.Specialized;
+using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +27,7 @@ public class Wheel : MonoBehaviour
 
     [Header("Wheel")]
     public float wheelRadius;
+    public GameObject WheelGraphic;
 
     [Header("Steering")]
     public bool steering;
@@ -69,6 +72,8 @@ public class Wheel : MonoBehaviour
             damperForce = damperStiffness * springVelocity;
 
             suspensionForce = (springForce + damperForce) * transform.up;
+
+            WheelGraphic.transform.localPosition = WheelGraphic.transform.localPosition.up * springLength
 
             WheelvelLS = transform.InverseTransformDirection(rb.GetPointVelocity(hit.point));
             if (controlable)

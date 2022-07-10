@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea201b09db581e458f6653f8c078052, type: 3}
+  m_Script: {fileID: 11500000, guid: fbb7f656155315f42ad1f403e2ebc371, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  Name: 
-  damage: 0
-  range: 1000
+  Name: Pistol
+  damage: 30
+  range: 100
   MaxAmmo: 12
   reloadtime: 2.32
   Firerate: 0.2
@@ -30,7 +30,7 @@ MonoBehaviour:
   model: {fileID: 8822515085052879786, guid: a28d75a31a7c7b541aab512eb6aaccf9, type: 3}
   optimaposition: {x: 0, y: 0, z: 0}
   localBarellpos: {x: 0.124, y: -0.109, z: 0.567}
-  Flash: {fileID: 153266, guid: 39b2a3d1ecfa5614b97e75a9b5561f21, type: 3}
+  Flash: {fileID: 0}
   bobSpeed: 0.2
   bobDistance: 0.005
   smoothnes: 8
